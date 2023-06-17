@@ -35,7 +35,7 @@ namespace HakunaMatata.Controllers
             ViewBag.Top4 = Top4;
             ViewData["Cities"] = new SelectList(cityList, "Id", "CityName");
             ViewData["Types"] = new SelectList(typeList, "Id", "RealEstateTypeName");
-
+            ViewData["Types1"] = new SelectList(typeList, "Id", "RealEstateTypeName");
             return View();
         }
 
