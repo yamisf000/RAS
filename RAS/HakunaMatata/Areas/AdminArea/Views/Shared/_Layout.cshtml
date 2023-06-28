@@ -18,8 +18,14 @@
     <link href="~/admin/css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css" />
     <link href="~/admin/css/jquery-ui.css" rel="stylesheet" type="text/css" />
     <!--font awesome-->
-    <link href="~/admin/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    @*    <link href="~/admin/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">*@
+
     @*<link href="~/css/all.css" rel="stylesheet">*@
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!--data table-->
     <link href="~/admin/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
@@ -57,7 +63,7 @@
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <div class="mx-auto" style="width: 50px">
-                                <img alt="image" class="img-fluid rounded-circle d-block mx-auto" src="~/admin/img/fpt2.jpg" />
+                                <img alt="image" class="img-fluid rounded-circle d-block mx-auto" src="~/admin/img/a1.jpg" />
                             </div>
                             <a data-toggle="dropdown" class="dropdown-toggle text-center" href="/#">
                                 @if (User.Identity.IsAuthenticated)
@@ -84,7 +90,7 @@
                     @if (userRoleId < 3)
                     {
                         <li class="@Html.IsActiveLink("RealEstate")">
-                            <a href="#"><i class="fas fa-list"></i> <span class="nav-label">Danh sách bài đăng</span><span class="arrow"><i class="fas fa-chevron-down"></i></span></a>
+                            <a href="/danh-sach-bai-viet"><i class="fas fa-list"></i> <span class="nav-label">Danh sách bài đăng</span><span class="arrow"><i class="fas fa-chevron-down"></i></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li class="@Html.IsActiveLink("RealEstate","Index")">
                                     <a asp-area="AdminArea" asp-controller="RealEstate" asp-action="Index">Tất cả bài viết</a>
@@ -99,6 +105,11 @@
                                     <a asp-area="AdminArea" asp-controller="RealEstate" asp-action="CustomerExpireList">Bài viết quá hạn</a>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="@Html.IsActiveLink("News", "Index")">
+                            <a asp-area="AdminArea" asp-controller="News" asp-action="Index">
+                                <i class="fas fa-newspaper"></i> <span class="nav-label">Quản lý tin tức</span>
+                            </a>
                         </li>
                         <li class="@Html.IsActiveLink("RealEstateType", "Index")">
                             <a asp-area="AdminArea" asp-controller="RealEstateType" asp-action="Index">
@@ -135,6 +146,9 @@
                     {
                         <li class="@Html.IsActiveLink("RealEstate", "ClientRealEstateList")">
                             <a asp-area="AdminArea" asp-controller="RealEstate" asp-action="ClientRealEstateList"><i class="fas fa-list"></i> <span class="nav-label">Quản lý bài đăng</span> </a>
+                        </li>
+                        <li class="@Html.IsActiveLink("RealEstate", "ClientRealWishList")">
+                            <a asp-area="AdminArea" asp-controller="RealEstate" asp-action="ClientRealWishList"><i class="fas fa-solid fa-heart-circle-check"></i> <span class="nav-label">Danh sách wishlist</span> </a>
                         </li>
                         <li class="@Html.IsActiveLink("RealEstate", "Create")">
                             <a asp-area="AdminArea" asp-controller="RealEstate" asp-action="Create"><i class="fas fa-feather-alt"></i> <span class="nav-label">Đăng tin</span> </a>
@@ -202,7 +216,6 @@
                         <h4 class="modal-title"></h4>
                     </div>
                     <div class="modal-body">
-
                     </div>
                 </div>
             </div>
@@ -219,7 +232,6 @@
 
     <!-- jQuery UI -->
     <script src="~/admin/js/plugins/jquery-ui/jquery-ui.min.js"></script>
-
     <!--datatable-->
     <script src="~/admin/js/plugins/dataTables/datatables.min.js"></script>
     <script src="~/admin/js/plugins/dataTables/dataTables.bootstrap4.min.js"></script>

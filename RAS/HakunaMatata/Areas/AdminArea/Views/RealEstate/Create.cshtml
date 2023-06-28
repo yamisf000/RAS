@@ -1,8 +1,8 @@
 ﻿@model HakunaMatata.Models.ViewModels.VM_RealEstateDetails;
 
 @{
-    var beginTimeValue = DateTime.Now.ToString("dd/MM/yyyy");
-    var expireTimeValue = DateTime.Now.ToString("dd/MM/yyyy");
+    var beginTimeValue = DateTime.Now.ToString("MM/dd/yyyy");
+    var expireTimeValue = DateTime.Now.ToString("MM/dd/yyyy");
     string userPhoneNumber = User.Identity.IsAuthenticated ? User.Claims.FirstOrDefault(c => c.Type == "Phone").Value : string.Empty;
     @if (Model != null)
     {
@@ -17,8 +17,10 @@
     }
 }
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY8PE_X6qdTWkZwdBENNpGJTYr1cTjG9I&libraries=places&language=vi&callback=initialize">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQTQKStMp1WkVFGKfHGuDMicYBpJy2UQE&libraries=places&language=vi&callback=initialize"
+        referrerpolicy="no-referrer-when-downgrade">
 </script>
+
 
 <div id="real-estate-create" class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -322,19 +324,23 @@
                             <div class="col-lg-12">
                                 <div class="ibox">
                                     @*<div class="ibox-title">
-                                            <h5>Hình ảnh</h5>
-                                        </div>*@
+                                    <h5>Hình ảnh</h5>
+                                    </div>*@
                                     <div class="ibox-content">
                                         @*<div class="row">
-                                                <h2>Hình ảnh</h2>
-                                            </div>*@
+                                        <h2>Hình ảnh</h2>
+                                        </div>*@
                                         <div class="row">
                                             <h2>Hình ảnh</h2>
                                             <div class="col-lg-3 col-sm-12">
                                                 <div class="custom-file">
-                                                    <input asp-for="Files" class="custom-file-input" type="file" multiple />
-                                                    <label class="custom-file-label" asp-for="Files">Choose file</label>
+@*                                                    <input asp-for="Files" class="custom-file-input" type="file" multiple />
+                                                    <label class="custom-file-label" asp-for="Files">Choose file</label>*@
+                                                    <input asp-for="Files" id="fileInput" class="custom-file-input" type="file" multiple />
+                                                    <label class="custom-file-label" for="fileInput">Choose file</label>
                                                 </div>
+                                                <div id="previewContainer"></div>
+                                                <p id="fileNames">test</p>
                                             </div>
                                             <div class="col-lg-12 col-sm-12">
                                                 <div class="lightBoxGallery"></div>
@@ -366,7 +372,7 @@
             forceParse: false,
             calendarWeeks: true,
             autoclose: true,
-            format: "dd/mm/yyyy"
+            format: "mm/dd/yyyy"
         });
 
         $('#expire-day .input-group.date').datepicker({
@@ -375,7 +381,7 @@
             forceParse: false,
             calendarWeeks: true,
             autoclose: true,
-            format: "dd/mm/yyyy"
+            format: "mm/dd/yyyy"
         });
 
         $('.summernote').summernote({
@@ -411,40 +417,12 @@
         });
     });
 
-    // Multiple images preview in browser
-    var imagesPreview = function (input, placeToInsertImagePreview) {
-        if (input.files) {
-            var filesAmount = input.files.length;
+ 
 
-            for (i = 0; i < filesAmount; i++) {
-                var reader = new FileReader();
 
-                reader.onload = function (event) {
-                    var img = new Image();
-                    var reviewWidth, renderWidth;
-                    img.src = event.target.result;
 
-                    img.onload = function () {
-                        reviewWidth = Number((this.width * 200) / this.height);
-                        console.log("1: " + reviewWidth);
-                    };
 
-                    renderWidth = isNaN(reviewWidth) ? 200 : reviewWidth;
-                    console.log("2: " + renderWidth);
 
-                    $($.parseHTML('<img>')).attr({
-                        'src': event.target.result,
-                        'class': 'img-fluid',
-                        //'style': 'width: 200px; height: 200px; border-radius: 7px',
-                        'style': 'width:' + reviewWidth + 'px; height: 200px; border-radius: 7px',
-                        'alt': 'preview'
-                    }).appendTo(placeToInsertImagePreview);
-                }
-
-                reader.readAsDataURL(input.files[i]);
-            }
-        }
-    };
 
     function formatNumber(n) {
         // format number 1000000 to 1,234,567
@@ -520,6 +498,82 @@
 </script>
 
 <script>
+
+
+    // Multiple images preview in browser
+    var imagesPreview = function (input, placeToInsertImagePreview) {
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function (event) {
+                    var img = new Image();
+                    var reviewWidth, renderWidth;
+                    img.src = event.target.result;
+
+                    img.onload = function () {
+                        reviewWidth = Number((this.width * 200) / this.height);
+                        console.log("1: " + reviewWidth);
+                    };
+
+                    renderWidth = isNaN(reviewWidth) ? 200 : reviewWidth;
+                    console.log("2: " + renderWidth);
+
+                    $($.parseHTML('<img>')).attr({
+                        'src': event.target.result,
+                        'class': 'img-fluid',
+                        //'style': 'width: 200px; height: 200px; border-radius: 7px',
+                        'style': 'width:' + reviewWidth + 'px; height: 200px; border-radius: 7px',
+                        'alt': 'preview'
+                    }).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+    };
+
+    // Lắng nghe sự kiện khi người dùng chọn tệp
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+        var files = event.target.files; // Lấy danh sách tệp được chọn
+        var previewContainer = document.getElementById('previewContainer'); // Đối tượng chứa xem trước
+        var fileNamesContainer = document.getElementById('fileNames'); // Đối tượng chứa tên file
+
+        // Xóa nội dung xem trước hiện tại
+        previewContainer.innerHTML = '';
+        fileNamesContainer.innerHTML = '';
+
+        // Duyệt qua từng tệp được chọn
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+
+            // Kiểm tra nếu tệp là hình ảnh
+            if (file.type.startsWith('image/')) {
+                var reader = new FileReader();
+
+                // Đọc tệp và tạo phần tử hình ảnh để xem trước
+                reader.onload = function (event) {
+                    var img = document.createElement('img');
+                    img.src = event.target.result;
+                    img.classList.add('preview-image');
+
+                    // Thêm hình ảnh vào phần tử chứa xem trước
+                    previewContainer.appendChild(img);
+                }
+
+                // Đọc nội dung của tệp
+                reader.readAsDataURL(file);
+            }
+
+            // Hiển thị tên file
+            var fileName = document.createElement('span');
+            fileName.innerHTML = file.name;
+            fileNamesContainer.appendChild(fileName);
+        }
+    });
+
     // Initialize and add the map
     function initialize() {
         var loca = { lat: 16.0738064, lng: 108.1477255 };

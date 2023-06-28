@@ -76,6 +76,7 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
         }
 
 
+
         /// <summary>
         /// Client's waiting for confirm post
         /// </summary>
@@ -124,6 +125,53 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             }
             ViewData["GOOGLE_MAP_API"] = Constants.GOOGLE_MAP_MARKER_API;
             return View(details);
+        }
+
+        public async Task<IActionResult> ClientRealWishList()
+        {
+            var wishListInfo = _realEstateServices.GetWishList();
+            if (wishListInfo == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                foreach (var item in wishListInfo)
+                {
+                    var pictures = await _fileServices.GetPicturesForRealEstate(item.RealEstateId);
+                    var pictureList = pictures.ToList(); // Convert IEnumerable<Picture> to a list
+
+                    if (pictureList.Count > 0)
+                    {
+                        item.Url = pictureList[0].Url; // Assign the URL of the first picture to the Url property
+                    }
+                }
+            }
+            return View(wishListInfo);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("wish-list/{id}")]
+        public IActionResult DeleteFromWishlist(int id)
+        {
+            int result = _realEstateServices.DeleteWishlist(id);
+
+            if (result == 1)
+            {
+                TempData["SuccessMessage"] = "Item removed from wishlist successfully!";
+            }
+            else if (result == 0)
+            {
+                TempData["ErrorMessage"] = "Item not found in the wishlist!";
+            }
+            else if (result == -1)
+            {
+                TempData["ErrorMessage"] = "System error occurred while removing item from wishlist!";
+            }
+
+            // Redirect to the RealEstate controller's Index action
+            return Redirect("/AdminArea/RealEstate/ClientRealWishList");
         }
 
         [HttpGet]

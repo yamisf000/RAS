@@ -112,6 +112,13 @@ namespace HakunaMatata
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+/*                endpoints.MapControllerRoute(
+                    name: "Account",
+                    pattern: "{controller=Account}/{action=Index}/{id?}");*/
+
+                endpoints.MapControllerRoute(
+                    name: "RealEstate",
+                    pattern: "{controller=RealEstate}/{action=Index}/{id?}");
             });
         }
     }

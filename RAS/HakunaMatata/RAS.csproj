@@ -10,9 +10,139 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Views\Home\images\0254d0cc-9ded-46b1-8ab1-253a1db10f78-luna1.jpg" />
+    <None Remove="Views\Home\images\285bfd74-85c9-4763-a779-0a783537364f-ngocmy1.jpg" />
+    <None Remove="Views\Home\images\2aac9f91-2b80-4e47-abf8-4a462f0f461a-skyhome3.jpg" />
+    <None Remove="Views\Home\images\2addc1c5-b535-4c7d-bdcc-186abc37e572-skyhome2.jpg" />
+    <None Remove="Views\Home\images\2c585f0b-c750-4746-b141-22e84fbe299c-myhome1.jpg" />
+    <None Remove="Views\Home\images\44436d87-c29d-4c7a-8075-51d88db6abf5-kt_gy.PNG" />
+    <None Remove="Views\Home\images\45ad52af-78ab-453d-9580-ae23c7fb89bd-holaapt1.jpg" />
+    <None Remove="Views\Home\images\49f411be-c83d-4417-b370-68d9f142a2af-luna1.jpg" />
+    <None Remove="Views\Home\images\4f2c6dad-280a-47e1-b847-fcc6ba83b3f8-phong-cach-retro-02-533x800.jpeg" />
+    <None Remove="Views\Home\images\56237fb8-c0f4-45ea-b79a-c4600ba8e5be-addstaff.png" />
+    <None Remove="Views\Home\images\5655a56b-235c-422f-b765-6467522a8e51-phong-cach-retro-02-533x800.jpeg" />
+    <None Remove="Views\Home\images\5dcfb3a6-8d4c-442c-8cf9-3abe136be223-retro-01-570x400.jpg" />
+    <None Remove="Views\Home\images\63762c3c-e327-4b2f-a129-857214520fc3-thietthao1.jpg" />
+    <None Remove="Views\Home\images\6cdecf84-fb1a-43e8-9eee-db0de0d50111-phong-cach-retro-02-533x800.jpeg" />
+    <None Remove="Views\Home\images\817dd62f-e138-44da-b12c-722816d2d3ad-phenika2.jpg" />
+    <None Remove="Views\Home\images\85efd064-8c7a-4905-8a0d-e6be9c7772a3-retro.jpeg" />
+    <None Remove="Views\Home\images\8d63a191-95db-41cf-9a9e-8d67a4b6a73b-tuancuong1.jpg" />
+    <None Remove="Views\Home\images\90134e25-5c98-4888-a63a-d63a10c0c37f-skyhome1.jpg" />
+    <None Remove="Views\Home\images\90134e25-5c98-4888-a63a-d63a10c0c37f-skyhome3.jpg" />
+    <None Remove="Views\Home\images\af9b1b2e-cb69-49ac-8f91-ce59a52f7c73-phong-cach-retro-02-533x800.jpeg" />
+    <None Remove="Views\Home\images\ca82a532-95f8-448a-bfd5-65318818dd86-ktxongba2.jpg" />
+    <None Remove="Views\Home\images\ccfeeb97-fd20-49e7-a1f6-35585babbcd6-2.jpg" />
+    <None Remove="Views\Home\images\d1b9bbf9-0e10-4280-8dd6-03c0617f3c24-luna3.jpg" />
+    <None Remove="Views\Home\images\e2cefb4e-a0e6-4f34-a1d0-a5531c90203d-luna2.jpg" />
+    <None Remove="Views\Home\images\f9f57f19-99ef-4413-8fcc-bae0b985b6f9-nguyenviet1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Home\images\0254d0cc-9ded-46b1-8ab1-253a1db10f78-luna1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\285bfd74-85c9-4763-a779-0a783537364f-ngocmy1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\2aac9f91-2b80-4e47-abf8-4a462f0f461a-skyhome3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\2addc1c5-b535-4c7d-bdcc-186abc37e572-skyhome2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\2c585f0b-c750-4746-b141-22e84fbe299c-myhome1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\44436d87-c29d-4c7a-8075-51d88db6abf5-kt_gy.PNG">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\45ad52af-78ab-453d-9580-ae23c7fb89bd-holaapt1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\49f411be-c83d-4417-b370-68d9f142a2af-luna1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\4f2c6dad-280a-47e1-b847-fcc6ba83b3f8-phong-cach-retro-02-533x800.jpeg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\56237fb8-c0f4-45ea-b79a-c4600ba8e5be-addstaff.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\5655a56b-235c-422f-b765-6467522a8e51-phong-cach-retro-02-533x800.jpeg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\5dcfb3a6-8d4c-442c-8cf9-3abe136be223-retro-01-570x400.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\63762c3c-e327-4b2f-a129-857214520fc3-thietthao1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\6cdecf84-fb1a-43e8-9eee-db0de0d50111-phong-cach-retro-02-533x800.jpeg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\817dd62f-e138-44da-b12c-722816d2d3ad-phenika2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\85efd064-8c7a-4905-8a0d-e6be9c7772a3-retro.jpeg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\8d63a191-95db-41cf-9a9e-8d67a4b6a73b-tuancuong1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\90134e25-5c98-4888-a63a-d63a10c0c37f-skyhome1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\90134e25-5c98-4888-a63a-d63a10c0c37f-skyhome3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\af9b1b2e-cb69-49ac-8f91-ce59a52f7c73-phong-cach-retro-02-533x800.jpeg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\ca82a532-95f8-448a-bfd5-65318818dd86-ktxongba2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\ccfeeb97-fd20-49e7-a1f6-35585babbcd6-2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\d1b9bbf9-0e10-4280-8dd6-03c0617f3c24-luna3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\e2cefb4e-a0e6-4f34-a1d0-a5531c90203d-luna2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Home\images\f9f57f19-99ef-4413-8fcc-bae0b985b6f9-nguyenviet1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Areas\AdminArea\Data\" />
     <Folder Include="Areas\AdminArea\Models\" />
-    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
   <ItemGroup>
