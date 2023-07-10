@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+@model HakunaMatata.Models.ViewModels.VM_News
+
+@section scripts{
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY&callback=LoadMarker">
+    </script>
+    <script type="text/javascript" src="~/assets/js/maplace-active.js"></script>
+}
+<!-- main news start -->
+<div>
+    <div class="container">
+            <div class="container-news row">
+                <div class="col-4">
+                <img class="img-first-content" src="" />
+                </div>
+                <div class="container-first-content col-8">
+                    <p class="name-news text-color">Author name</p>
+                    <h3 class="container-title-text">House breaking down</h3>
+                    <a href="/"><p class="container-text text-color">Read More</p></a>
+                </div>
+            </div>
+    </div>
+</div>
+<!-- main news end -->
+<!-- body news start -->
+        <div class="container">
+            <div class="container-body-news row">
+                <div class="col-7 line-right">
+                    <div class="">
+                        <img class="img-news-content" src="../images/@Model.UrlImage" />
+                    </div>
+                    <p class="text-color" style="color:white">@Model.NewsBody</p>
+@*                    <p class="text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    <p class="text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    <p class="text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>*@
+                </div>
+
+            <div class="col-5">
+                <div class="h2 text-color line-bottom" style="color:white">We recommend</div>
+                <div class="row flash-news" style="color:white">
+                    <div class="col-6">
+                        <img class="img-flash-news" src="../assets/img/banner/1.jpg" />
+                    </div>
+                    <div class="col-6">
+                    <p style="color:white" class="text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    </div>
+                </div>
+            <div class="row flash-news" style="color:white">
+                    <div class="col-6">
+                        <img class="img-flash-news" src="../assets/img/banner/1.jpg" />
+                    </div>
+                    <div class="col-6">
+                    <p style="color:white"  class="text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    </div>
+                </div>
+            <div class="row flash-news" style="color:white">
+                    <div class="col-6 ">
+                        <img class="img-flash-news" src="../assets/img/banner/1.jpg" />
+                    </div>
+                    <div class="col-6">
+                    <p style="color:white" class="text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    </div>
+                </div>
+            <div class="row flash-news" style="color:white">
+                    <div class="col-6">
+                        <img class="img-flash-news" src="../assets/img/banner/1.jpg" />
+                    </div>
+                    <div class="col-6">
+                    <p style="color:white" class="text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+    <!-- body news end -->
+
+<style>
+    .text-color{
+        color:black;
+    }
+    .container-news{
+        display: flex;
+        background-color: #ccc;
+        margin-top:20vh;
+    }
+        .container-text{
+            padding-bottom: 20px;
+        }
+        .name-news{
+            padding-top: 12px;
+        }
+        .container-title-text{
+            margin-bottom: 70px;
+        }
+        .img-first-content{
+            height:100%;
+            
+        }
+        .img-news-content{
+            height:400px;
+        }
+        .img-flash-news{
+            height: 100%;
+        }
+        .flash-news{
+            padding: 28px 0;
+        }
+        .banner-inner-wrap{
+            height:128vh;
+        }
+        .container-body-news{
+            padding-top:20px;
+        }
+        .line-right{
+            border-right: 1px solid #000;
+        }
+        .line-bottom{
+            border-bottom: 1px solid #000;
+        }
+</style>
+

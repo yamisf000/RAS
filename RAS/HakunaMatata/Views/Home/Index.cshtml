@@ -1,0 +1,315 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+@model HakunaMatata.Models.ViewModels.Condition;
+
+@section scripts{
+@*    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8&callback=LoadMarker">
+    </script>*@
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQTQKStMp1WkVFGKfHGuDMicYBpJy2UQE&libraries=places&language=vi&callback=initialize"
+            referrerpolicy="no-referrer-when-downgrade">
+    </script>
+
+
+    <script type="text/javascript" src="~/assets/js/maplace-active.js"></script>
+}
+ 
+    <div class="banner-area jarallax" style="background-image: url(../assets/img/banner/4.jpg);">
+        <div class="container">
+            <div class="banner-inner-wrap">
+                <div class="main-search-area">
+                    <div class="container">
+                        <div class="container-first">
+                            <div class="container-first-content col-xl-7">
+                                <h3>Feature that is amazing</h3>
+                                <p style="" class="container-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            <form action="/dang-ki" method="get">
+                                <div class="col-xl-4 col-lg-6 col-md-6 btn-container">
+                                    <input style="background-color: white; color: black" class="btn" type="submit" value="SIGN UP NOW" />
+                                </div>
+                            </form>
+
+                            </div>
+                            <img class="img-first-content col-xl-5" src="../assets/img/banner/4.jpg" />
+                        </div>
+
+                        <div class="h1 text-center">Bạn đang tìm gì?</div>
+                        <p class="container-text text-center col-md-4 offset-md-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                        <div class="banner-search-wrap">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active">
+                                    <form asp-action="Index" asp-controller="RealEstate" method="get">
+                                        <div class="rld-main-search">
+                                            <div class="row">
+                                                <div class="col-xl-4 col-lg-6 col-md-6">
+                                                    <div class="rld-single-input left-icon">
+                                                        <input asp-for="SearchString" type="text" placeholder="Nhập khu vực cần tìm kiếm">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-6 col-md-6 px-xl-0">
+                                                    <div class="rld-single-select">
+                                                        <select asp-for="City" class="select single-select" asp-items="ViewBag.Cities">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-2 col-lg-6 col-md-6 pr-xl-0">
+                                                    <div class="rld-single-select">
+                                                        <select asp-for="Type" class="select single-select" asp-items="ViewBag.Types">
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-4 col-lg-6 col-md-6">
+                                                    <input class="btn btn-yellow" type="submit" value="TÌM KIẾM" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="h1 text-center property">Latest post</div>
+    <p class="container-text text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+    <div class="container text-center">
+
+        <div class="property-filter-area row row-cols-4 custom-gutter" style="position: relative; height: 419.4px;">
+
+
+            @foreach (var item in ViewBag.Top4)
+            {
+            <div class="rld-filter-item col-lg-3 col-sm-6">
+                <div class="single-feature" style="margin-left: 12px; margin-right: 12px;">
+                    <div class="thumb">
+                    <img src="/images/@(string.IsNullOrEmpty(item.UrlImage) ? "90134e25-5c98-4888-a63a-d63a10c0c37f-skyhome1.jpg" : item.UrlImage)" style="width:100%; height:100%; object-fit:cover;" alt="img">
+
+                    </div>
+                    <div class="details">
+                        <p class="author text-primary"><i class="fab fa-canadian-maple-leaf"></i> PHÒNG TRỌ</p>
+                        <h6 class="title"><a href="/Home/index2"><i class="fas fa-map-marker-alt"></i>@item.Title</a></h6>
+                        <div class="d-flex">
+                            <div class="h5 price mr-auto">@item.Price VNĐ/tháng</div>
+                        </div>
+                        <ul class="info-list d-flex">
+                            <li class="mr-auto">Đăng bởi: <span class="font-weight-bold">@item.AgentName</span></li>
+
+                        </ul>
+                    <ul class="info-list d-flex">
+                        <li class="mr-auto">Ngày đăng: <span class="font-weight-bold">@item.ExprireTime</span></li>
+
+                    </ul>
+                        <ul class="contact-list">
+                        <li><a class="btn btn-yellow" href="/thong-tin-chi-tiet?id=@(item.Id)">Chi tiết</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+        </div>
+        
+
+    </div>
+
+
+    <div class="container">
+        <div class="h1 news">Featured news/research</div>
+        <div class="property-filter-area row row-cols-4 custom-gutter" style="position: relative; height: 419.4px;">
+        @foreach (var item in ViewBag.Top4sub)
+        {
+            <div class="rld-filter-item col-lg-3 col-sm-6">
+                <div class="single-feature" style="margin-left: 12px; margin-right: 12px;">
+                    <div class="thumb">
+                        @if (string.IsNullOrEmpty(item.UrlImage))
+                        {
+                            <img src="/images/90134e25-5c98-4888-a63a-d63a10c0c37f-skyhome1.jpg" style="width:100%; height:100%; object-fit:cover;" alt="img">
+                        }
+                        else
+                        {
+                            <img src="/images/@item.UrlImage" style="width:100%; height:100%; object-fit:cover;" alt="img">
+                        }
+                    </div>
+                    <div class="details">
+                        <p class="author text-primary"><i class="fab fa-canadian-maple-leaf"></i>@item.Title</p>
+                        <h6 class="title"><a href="/Home/index2"><i class="fas fa-map-marker-alt"></i>@item.NewsBody</a></h6>
+                        <ul class="contact-list">
+                            <li><a class="btn btn-yellow" href="/news-chi-tiet/@(item.Id)">Chi tiết</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+        </div>
+
+    </div>
+
+    <div class="section-title text-center">
+        <h2 class="title">Tìm kiếm trên bản đồ</h2>
+    <div class="input-group m-b">
+        <span class="input-group-addon">
+            <i class="fas fa-map-marker-alt"></i>
+        </span>
+        <input id="searchTextField" type="text" class="form-control" />
+        <input type="hidden" id="placeLat" />
+        <input type="hidden" id="placeLng" />
+    </div>
+
+    <div id="map" style="height: 500px;"></div>
+    <div id="infowindow-content">
+        <span id="place-name" class="title"></span><br>
+        <span id="place-address"></span>
+    </div>
+    </div>
+@*
+    <div class="banner-area banner-search">
+        <div id="map" style="height: 88vh"></div>
+    </div>*@
+    <div class="form-group row">
+        <div class="col-lg-12">
+            <div class="ibox-content">
+                <div class="input-group m-b">
+                    <span class="input-group-addon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </span>
+@*                    <input asp-for="Address" id="searchTextField" type="text" class="form-control" />
+                    <input asp-for="Latitude" type="hidden" id="placeLat" />
+                    <input asp-for="Longtitude" type="hidden" id="placeLng" />*@
+                </div>
+
+                <div id="map" style="height: 500px;"></div>
+                <div id="infowindow-content">
+                    <span id="place-name" class="title"></span><br>
+                    <span id="place-address"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .container-first {
+            display: flex;
+            padding-top: 170px;
+            padding-bottom: 40px;
+            color: black;
+        }
+
+        .container-text {
+            padding: 24px 0;
+        }
+
+        .btn-container {
+            padding-left: 0;
+        }
+
+            .btn-container .btn {
+                border: 1px solid #000;
+                background-color: #0000;
+            }
+
+        .img-first-content {
+            height: 300px;
+            width: 100%;
+        }
+
+        .banner-inner-wrap {
+            height: 128vh;
+        }
+
+        .property {
+            padding-top: 20px;
+        }
+
+        .news {
+            padding-top: 30px;
+            padding-bottom: 16px;
+        }
+        li {
+            color: black;
+        }
+
+    </style>
+    <script>
+        // Initialize and add the map
+        function initialize() {
+            var loca = { lat: 16.0738064, lng: 108.1477255 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 16, center: loca });
+            // The marker, positioned at Uluru
+            //var marker = new google.maps.Marker({ position: loca, map: map });
+
+            var input = document.getElementById('searchTextField');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+
+            autocomplete.bindTo('bounds', map);
+
+            // Set the data fields to return when the user selects a place.
+            autocomplete.setFields(
+                ['address_components', 'geometry', 'icon', 'name']);
+
+            var infowindow = new google.maps.InfoWindow();
+            var infowindowContent = document.getElementById('infowindow-content');
+            infowindow.setContent(infowindowContent);
+            var marker = new google.maps.Marker({
+                map: map,
+                anchorPoint: new google.maps.Point(0, -29)
+            });
+
+            autocomplete.addListener('place_changed', function () {
+                infowindow.close();
+                marker.setVisible(false);
+                var place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    // User entered the name of a Place that was not suggested and
+                    // pressed the Enter key, or the Place Details request failed.
+                    window.alert("No details available for input: '" + place.name + "'");
+                    return;
+                }
+
+                // If the place has a geometry, then present it on a map.
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                    document.getElementById('placeLat').value = place.geometry.location.lat();
+                    document.getElementById('placeLng').value = place.geometry.location.lng();
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17);  // Why 17? Because it looks good.
+                }
+                marker.setPosition(place.geometry.location);
+                marker.setVisible(true);
+
+                var address = '';
+                if (place.address_components) {
+                    address = [
+                        (place.address_components[0] && place.address_components[0].short_name || ''),
+                        (place.address_components[1] && place.address_components[1].short_name || ''),
+                        (place.address_components[2] && place.address_components[2].short_name || '')
+                    ].join(' ');
+                }
+
+                //infowindowContent.children['place-icon'].src = place.icon;
+                infowindowContent.children['place-name'].textContent = place.name;
+                infowindowContent.children['place-address'].textContent = address;
+                infowindow.open(map, marker);
+            });
+
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+
+
