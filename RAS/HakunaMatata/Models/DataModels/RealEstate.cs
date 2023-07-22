@@ -46,5 +46,8 @@ namespace HakunaMatata.Models.DataModels
         public virtual RealEstateDetail RealEstateDetail { get; set; }
         public virtual ICollection<Picture> Picture { get; set; }
         public virtual ICollection<Rating> Rating { get; set; }
+
+        public virtual ICollection<Wishlist> Wishlist { get; set; }
+
     }
 }
