@@ -5,9 +5,6 @@
 @model List<HakunaMatata.Models.ViewModels.VM_News>
 
 @section scripts{
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=MY_API_KEY&callback=LoadMarker">
-    </script>
     <script type="text/javascript" src="~/assets/js/maplace-active.js"></script>
 }
 <!-- main news start -->
@@ -82,7 +79,7 @@
         </div>
 
         <div class="col-lg-5">
-            <div class="recommend-text">We recommend</div>
+            <div class="recommend-text">What we recommend</div>
             @{
                 var random = new Random();
                 var randomItems = Model.OrderBy(x => random.Next()).Take(4);
