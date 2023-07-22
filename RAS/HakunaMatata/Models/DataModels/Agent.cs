@@ -17,6 +17,9 @@ namespace HakunaMatata.Models.DataModels
         public string Email { get; set; }
         public string Facebook { get; set; }
         public string Zalo { get; set; }
+        public string Avatar { get; set; }
+        public int? Coin { get; set; }
+        public int? Package { get; set; }
         public string LoginName { get; set; }
         public string Password { get; set; }
         public string ActiveKey { get; set; }
@@ -27,7 +30,17 @@ namespace HakunaMatata.Models.DataModels
         public bool ConfirmPhoneNumber { get; set; }
 
         public virtual Level Level { get; set; }
+
         public virtual ICollection<RealEstate> RealEstate { get; set; }
         public virtual ICollection<SocialLogin> SocialLogin { get; set; }
+        public virtual ICollection<Forum> Forum { get; set; }
+        public virtual ICollection<Wishlist> Wishlist { get; set; }
+
+        public virtual ICollection<News> News { get; set; }
+
+        public virtual ICollection<Like> Like { get; set; }
+
+        public virtual ICollection<Comment> Comment { get; set; }
+        public virtual ICollection<HistoryPayment> HistoryPayment { get; set; }
     }
 }
