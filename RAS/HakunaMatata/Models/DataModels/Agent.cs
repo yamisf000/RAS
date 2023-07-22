@@ -20,6 +20,9 @@ namespace HakunaMatata.Models.DataModels
         public string LoginName { get; set; }
         public string Password { get; set; }
         public string ActiveKey { get; set; }
+
+        public int? Coin { get; set; }
+        public int? Package { get; set; }
         public string ResetPasswordKey { get; set; }
         public DateTime? LastLogin { get; set; }
         public bool IsActive { get; set; }

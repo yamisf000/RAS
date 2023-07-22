@@ -45,7 +45,7 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOrEdit(int id, [Bind("Id,RealEstateTypeName")]RealEstateType type)
+        public IActionResult CreateOrEdit(int id, [Bind("Id,RealEstateTypeName")] RealEstateType type)
         {
             if (ModelState.IsValid)
             {

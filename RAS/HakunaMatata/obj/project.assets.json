@@ -9861,19 +9861,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nolif\\.nuget\\packages\\": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nolif\\OneDrive\\Desktop\\RAS_final1\\RAS_final\\RAS\\HakunaMatata\\RAS.csproj",
+      "projectUniqueName": "C:\\Users\\admin\\Desktop\\RAS\\RAS\\HakunaMatata\\RAS.csproj",
       "projectName": "RAS",
-      "projectPath": "C:\\Users\\nolif\\OneDrive\\Desktop\\RAS_final1\\RAS_final\\RAS\\HakunaMatata\\RAS.csproj",
-      "packagesPath": "C:\\Users\\nolif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nolif\\OneDrive\\Desktop\\RAS_final1\\RAS_final\\RAS\\HakunaMatata\\obj\\",
+      "projectPath": "C:\\Users\\admin\\Desktop\\RAS\\RAS\\HakunaMatata\\RAS.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\admin\\Desktop\\RAS\\RAS\\HakunaMatata\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nolif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9881,6 +9881,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9975,8 +9976,20 @@
         "warn": true,
         "downloadDependencies": [
           {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
             "name": "Microsoft.NETCore.App.Host.win-x64",
             "version": "[3.1.32, 3.1.32]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
           }
         ],
         "frameworkReferences": {
@@ -9987,7 +10000,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   },
