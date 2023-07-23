@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nolif\\OneDrive\\Desktop\\a\\RAS\\RAS\\HakunaMatata\\RAS.csproj": {}
+    "C:\\Users\\D\\Desktop\\RAS\\RAS\\RAS\\HakunaMatata\\RAS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nolif\\OneDrive\\Desktop\\a\\RAS\\RAS\\HakunaMatata\\RAS.csproj": {
+    "C:\\Users\\D\\Desktop\\RAS\\RAS\\RAS\\HakunaMatata\\RAS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nolif\\OneDrive\\Desktop\\a\\RAS\\RAS\\HakunaMatata\\RAS.csproj",
+        "projectUniqueName": "C:\\Users\\D\\Desktop\\RAS\\RAS\\RAS\\HakunaMatata\\RAS.csproj",
         "projectName": "RAS",
-        "projectPath": "C:\\Users\\nolif\\OneDrive\\Desktop\\a\\RAS\\RAS\\HakunaMatata\\RAS.csproj",
-        "packagesPath": "C:\\Users\\nolif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nolif\\OneDrive\\Desktop\\a\\RAS\\RAS\\HakunaMatata\\obj\\",
+        "projectPath": "C:\\Users\\D\\Desktop\\RAS\\RAS\\RAS\\HakunaMatata\\RAS.csproj",
+        "packagesPath": "C:\\Users\\D\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\D\\Desktop\\RAS\\RAS\\RAS\\HakunaMatata\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nolif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\D\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,12 +114,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.32, 3.1.32]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -128,7 +122,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
