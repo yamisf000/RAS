@@ -43,6 +43,7 @@ namespace HakunaMatata.Controllers
             var newsListInfo = _services.GetListNews();
             return View(newsListInfo);
         }
+
         public IActionResult Privacy()
         {
             return View();
