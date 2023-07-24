@@ -16,7 +16,7 @@ namespace HakunaMatata.Services
         void DeleteLevel(int id);
         bool IsExist(int id);
     }
-    public class NewsServices :INewsServices
+    public class NewsServices 
     {
         private readonly HakunaMatataContext _context;
         public NewsServices(HakunaMatataContext context)
