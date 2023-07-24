@@ -38,7 +38,11 @@ namespace HakunaMatata.Controllers
             ViewData["Types1"] = new SelectList(typeList, "Id", "RealEstateTypeName");
             return View();
         }
-
+        public IActionResult NewList()
+        {
+            var newsListInfo = _services.GetListNews();
+            return View(newsListInfo);
+        }
         public IActionResult Privacy()
         {
             return View();
