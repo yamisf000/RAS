@@ -43,7 +43,28 @@ namespace HakunaMatata.Controllers
             var newsListInfo = _services.GetListNews();
             return View(newsListInfo);
         }
+        [Route("news-chi-tiet/{id}")]
+        public IActionResult NewsDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            // Retrieve the news item based on the provided ID
+            var newsItem = _services.GetNewsById(id.Value);
+
+            var Top4new = _services.GetListNews();
+            Top4new = Top4new.OrderByDescending(c => c.Id).Take(4).ToList();
+            ViewBag.Top4new = Top4new;
+
+            if (newsItem == null)
+            {
+                return NotFound();
+            }
+
+            return View(newsItem);
+        }
         public IActionResult Privacy()
         {
             return View();
