@@ -22,6 +22,7 @@ namespace HakunaMatata.Services
         /// <returns></returns>
         IQueryable<RealEstateViewModel> GetRealEstates(string searchKey);
         List<VM_News> GetListNews();
+        VM_News GetNewsById(int id);
         /// <summary>
         /// User's all post
         /// </summary>
