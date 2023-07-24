@@ -48,5 +48,45 @@ namespace HakunaMatata.Services
             }
 
         }
+        public void UpdateLevel(News news)
+        {
+            /*            try
+                        {
+                            var lv = _context.News.Find(news.Id);
+                            if (lv != null)
+                            {
+                                lv.LevelName = news.LevelName;
+                                _context.SaveChanges();
+                            }
+                        }
+                        catch
+                        {
+                            throw;
+                        }*/
+        }
+
+        public void DeleteLevel(int id)
+        {
+            /*            try
+                        {
+                            var a = _context.Level.Find(id);
+                            if (a != null)
+                            {
+                                _context.Level.Remove(a);
+                                _context.SaveChanges();
+                            }
+                        }
+                        catch
+                        {
+                            throw;
+                        }*/
+        }
+
+
+
+        public bool IsExist(int id)
+        {
+            return _context.News.Any(f => f.Id == id);
+        }
     }
 }
