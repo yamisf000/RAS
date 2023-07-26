@@ -7,6 +7,7 @@ using HakunaMatata.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -108,6 +109,9 @@ namespace HakunaMatata.Controllers
             ViewBag.city = city;
             return View(details);
         }
+
+
+    
 
         [HttpGet]
         [AllowAnonymous]
