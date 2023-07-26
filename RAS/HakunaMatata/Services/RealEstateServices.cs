@@ -207,6 +207,20 @@ namespace HakunaMatata.Services
             return results;
         }
 
+        public int AddNewWishList(Wishlist wishlist)
+        {
+            try
+            {
+                _context.Wishlist.Add(wishlist);
+                _context.SaveChanges();
+                return wishlist.Id;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
         public List<RealEstateViewModel> GetCustomerConFirmList()
         {
             var results = new List<RealEstateViewModel>();
