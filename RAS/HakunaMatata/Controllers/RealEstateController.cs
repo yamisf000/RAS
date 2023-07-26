@@ -137,6 +137,30 @@ namespace HakunaMatata.Controllers
             return RedirectToAction("Index", "RealEstate");
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("Home/wishlist/{id}")]
+        public IActionResult DeleteFromWishlist(int id)
+        {
+            int result = _realEstateServices.DeleteWishlist(id);
+
+            if (result == 1)
+            {
+                TempData["SuccessMessage"] = "Item removed from wishlist successfully!";
+            }
+            else if (result == 0)
+            {
+                TempData["ErrorMessage"] = "Item not found in the wishlist!";
+            }
+            else if (result == -1)
+            {
+                TempData["ErrorMessage"] = "System error occurred while removing item from wishlist!";
+            }
+
+            // Redirect to the RealEstate controller's Index action
+            return RedirectToAction("wishlist", "Home");
+        }
+
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> GetDistricts(int? cityId, int? currentDistrictId)
