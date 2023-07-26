@@ -223,6 +223,27 @@ namespace HakunaMatata.Services
             }
         }
 
+        public int DeleteWishlist(int id)
+        {
+            try
+            {
+                var wishlist = _context.Wishlist.Find(id);
+
+                if (wishlist != null)
+                {
+                    _context.Wishlist.Remove(wishlist);
+                    _context.SaveChanges();
+                    return 1; // Success
+                }
+
+                return 0; // Not found
+            }
+            catch (Exception)
+            {
+                return -1; // System error
+            }
+        }
+
         public List<RealEstateViewModel> GetCustomerConFirmList()
         {
             var results = new List<RealEstateViewModel>();
