@@ -49,6 +49,8 @@ namespace HakunaMatata.Services
         int AddNewRealEstate(RealEstate realEstate);
 
         int AddNewWishList(Wishlist wishlist);
+
+        int DeleteWishlist(int id);
         bool AddRealEstateDetails(RealEstateDetail details);
         bool AddMapForRealEstate(Map map);
         int AddCompleteRealEstate(VM_RealEstateDetails details, int agentId);
