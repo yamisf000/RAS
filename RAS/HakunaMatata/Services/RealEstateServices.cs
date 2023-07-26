@@ -208,6 +208,23 @@ namespace HakunaMatata.Services
 
             return results;
         }
+        public List<VM_News> GetListNews()
+        {
+            var newsList = _context.News
+                .Select(n => new VM_News
+                {
+                    Id = n.Id,
+                    Title = n.Title,
+                    NewsBody = n.NewsBody,
+                    UrlImage = _context.Newspicture
+                        .Where(p => p.NewsID == n.Id && p.IsActive == true)
+                        .Select(p => p.URL)
+                        .FirstOrDefault() ?? "2aac9f91-2b80-4e47-abf8-4a462f0f461a-skyhome3.jpg"
+                })
+                .ToList();
+
+            return newsList;
+        }
 
         public int AddNewWishList(Wishlist wishlist)
         {
