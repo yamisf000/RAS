@@ -25,7 +25,7 @@ namespace HakunaMatata.Controllers
             _realEstateServices = realEstateServices;
             _fileServices = fileServices;
             _commonServices = commonServices;
-;
+            ;
         }
 
         [HttpGet]
@@ -111,7 +111,31 @@ namespace HakunaMatata.Controllers
         }
 
 
-    
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("add-to-wishlist")]
+        public async Task<IActionResult> AddToWishlist(int? id, int? userID)
+        {
+            if (userID == null)
+            {
+                // Nếu userID không tồn tại, bạn có thể xử lý lỗi ở đây
+                return BadRequest();
+            }
+
+            // Create a new Wishlist item
+            var newWishlistItem = new Wishlist
+            {
+                RealEstateId = id,
+                CreatedAt = DateTime.Now,
+                AgentId = userID.Value // Gán giá trị userID cho AgentId
+            };
+
+            // Save the new Wishlist item to the database using _realEstateServices.AddNewWishList method
+            int wishlistId = _realEstateServices.AddNewWishList(newWishlistItem);
+
+            // Redirect to the RealEstate controller's Index action
+            return RedirectToAction("Index", "RealEstate");
+        }
 
         [HttpGet]
         [AllowAnonymous]
