@@ -17,6 +17,7 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
     {
         private readonly IRealEstateServices _realEstateServices;
         private readonly IFileServices _fileServices;
+        private readonly ILevelServices _levelServices;
         //private readonly IAccountServices _accountServices;
 
         public RealEstateController(IRealEstateServices realEstateServices, IFileServices fileServices)
@@ -329,5 +330,20 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             }
 
         }
+        [HttpGet]
+        public IActionResult PaymentHistory(DateTime? startDate, DateTime? endDate)
+        {
+            var userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
+
+            if (userId == 0)
+            {
+                return Redirect("/AdminArea");
+            }
+
+            var histories = _levelServices.GetHistoryPaymentsByDate(startDate, endDate, userId);
+
+            return View(histories);
+        }
     }
 }
+    
