@@ -1,5 +1,6 @@
 ﻿using HakunaMatata.Data;
 using HakunaMatata.Models.DataModels;
+using HakunaMatata.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace HakunaMatata.Services
         void UpdateLevel(Level level);
         void DeleteLevel(int id);
         bool IsExist(int id);
+        IEnumerable<PaymentHistoryDetailModel> GetHistoryPaymentsByDate(DateTime? startDate, DateTime? endDate,
+            int userId = 0);
     }
     public class LevelServices : ILevelServices
     {
