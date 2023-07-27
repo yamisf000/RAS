@@ -16,18 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\datepicker\date-picker\datepicker.custom.js" />
-    <None Include="wwwroot\datepicker\date-picker\datepicker.en.js" />
-    <None Include="wwwroot\datepicker\date-picker\datepicker.js" />
-    <None Include="wwwroot\datepicker\date-time-picker\datetimepicker.custom.js" />
-    <None Include="wwwroot\datepicker\date-time-picker\moment.min.js" />
-    <None Include="wwwroot\datepicker\date-time-picker\tempusdominus-bootstrap-4.min.js" />
-    <None Include="wwwroot\datepicker\daterange-picker\daterange-picker.custom.js" />
-    <None Include="wwwroot\datepicker\daterange-picker\daterangepicker.js" />
-    <None Include="wwwroot\datepicker\daterange-picker\moment.min.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.23" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
