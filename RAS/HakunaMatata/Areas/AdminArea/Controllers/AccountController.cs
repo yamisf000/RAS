@@ -85,12 +85,21 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
         }
 
         [Route("dang-ki")]
-        public IActionResult Register(string returnUrl = "")
+        public IActionResult Register(string email, string returnUrl = "")
         {
             var model = new VM_Register { ReturnUrl = returnUrl };
+
+            if (!string.IsNullOrEmpty(email))
+            {
+                model.Email = email;
+            }
+            else
+            {
+                ViewBag.isActiveOtp = false;
+            }
+
             return View(model);
         }
-
 
         [HttpPost]
         [AllowAnonymous]
