@@ -91,5 +91,37 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             }
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "CreateOrEdit", news) });
         }
+
+        [HttpPost]
+        public IActionResult CreateOrEditImage(int id, [Bind("Id,PictureName,NewsID,URL")] Newspicture newspic)
+        {
+            if (ModelState.IsValid)
+            {
+                //insert
+                if (id == 0)
+                {
+                    _services.CreateNewsPicture(newspic);
+                }
+
+                //update
+                else
+                {
+                    try
+                    {
+                        _services.UpdateNewsPicture(newspic);
+                    }
+                    catch (Exception)
+                    {
+                        if (!_services.IsExistNews(newspic.Id))
+                        {
+                            return NotFound();
+                        }
+                        else throw;
+                    }
+                }
+                return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAllNews", _services.GetListNews()) });
+            }
+            return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "CreateOrEditImage", newspic) });
+        }
     }
 }
