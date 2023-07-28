@@ -83,6 +83,6 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             _services.DeleteType(id);
             return Json(new { html = Helper.RenderRazorViewToString(this, "_ViewAllTypes", _services.GetList()) });
         }
-
+       
     }
 }
