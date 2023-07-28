@@ -70,7 +70,10 @@ namespace HakunaMatata.Services
             return _context.HistoryPayment.ToList();
         }
 
-     
+        public IEnumerable<News> GetListNews()
+        {
+            return _context.News.ToList();
+        }
 
         public Level GetDetails(int id)
         {
