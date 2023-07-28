@@ -76,6 +76,11 @@ namespace HakunaMatata.Services
             return _context.News.ToList();
         }
 
+        public News GetNewsDetails(int id)
+        {
+            return _context.News.Find(id);
+        }
+
         public Level GetDetails(int id)
         {
             return _context.Level.Find(id);
