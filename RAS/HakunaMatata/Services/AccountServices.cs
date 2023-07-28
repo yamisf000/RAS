@@ -12,6 +12,7 @@ namespace HakunaMatata.Services
         Task<bool> RegisterUser(VM_Register registerUser);
         bool CheckExist(string loginName);
         bool IsValidUser(int userId, int realEstateId);
+        bool ResetPassword(string email, string newPass);
     }
 
     public class AccountServices : IAccountServices

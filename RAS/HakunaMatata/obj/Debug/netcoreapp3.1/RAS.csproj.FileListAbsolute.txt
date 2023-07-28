@@ -1959,3 +1959,14 @@ C:\Users\nolif\OneDrive\Desktop\RAS_Project\RAS\HakunaMatata\obj\Debug\netcoreap
 C:\Users\nolif\OneDrive\Desktop\RAS_Project\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.dll
 C:\Users\nolif\OneDrive\Desktop\RAS_Project\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.pdb
 C:\Users\nolif\OneDrive\Desktop\RAS_Project\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.genruntimeconfig.cache
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.csproj.AssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.AssemblyInfoInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.AssemblyInfo.cs
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.RazorAssemblyInfo.cache
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.RazorAssemblyInfo.cs
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.dll
+C:\Users\ADMIN\OneDrive\Desktop\Rasgit\RAS\RAS\HakunaMatata\obj\Debug\netcoreapp3.1\RAS.pdb
