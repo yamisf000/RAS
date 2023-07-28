@@ -22,5 +22,24 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             var news = _services.GetListNews();
             return View(news);
         }
+
+        [NoDirectAccess]
+        public IActionResult CreateOrEdit(int id = 0)
+        {
+            if (id == 0)
+            {
+                return View(new Level());
+            }
+            else
+            {
+                var level = _services.GetDetails(id);
+                if (level == null)
+                {
+                    return NotFound();
+                }
+                return View(level);
+            }
+
+        }
     }
 }
