@@ -20,9 +20,11 @@ namespace HakunaMatata.Services
         News GetNewsDetails(int id);
         void CreateNews(News news);
         void UpdateNews(News news);
+        void DeleteNews(int id);
         bool IsExistNews(int id);
         void CreateNewsPicture(Newspicture newspic);
         void UpdateNewsPicture(Newspicture newspic);
+
         Level GetDetails(int id);
         void Create(Level level);
         void UpdateLevel(Level level);
@@ -118,6 +120,23 @@ namespace HakunaMatata.Services
             }
         }
 
+        public void DeleteNews(int id)
+        {
+            try
+            {
+                var a = _context.News.Find(id);
+                if (a != null)
+                {
+                    _context.News.Remove(a);
+                    _context.SaveChanges();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public void CreateNewsPicture(Newspicture newspic)
         {
             try
@@ -152,7 +171,7 @@ namespace HakunaMatata.Services
             {
                 throw;
             }
-        }
+        }   
 
         public Level GetDetails(int id)
         {
