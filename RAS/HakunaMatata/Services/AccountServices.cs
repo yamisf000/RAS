@@ -45,6 +45,23 @@ namespace HakunaMatata.Services
             return false;
         }
 
+        public bool ResetPassword(string email, string newPass)
+        {
+            var agent = _dbContext.Agent.FirstOrDefault(s => s.Email.Equals(email));
+            if (agent == null)
+            {
+                return false;
+            }
+
+            agent.Password = newPass;
+
+            _dbContext.Agent.Update(agent);
+
+            _dbContext.SaveChanges();
+
+            return true;
+        }
+
         public async Task<bool> RegisterUser(VM_Register registerUser)
         {
             try
