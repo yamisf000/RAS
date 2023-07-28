@@ -123,5 +123,13 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             }
             return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "CreateOrEditImage", newspic) });
         }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirm(int id)
+        {
+            _services.DeleteNews(id);
+            return Json(new { html = Helper.RenderRazorViewToString(this, "_ViewAllNews", _services.GetListNews()) });
+        }
     }
 }
