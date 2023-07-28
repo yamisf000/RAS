@@ -20,6 +20,7 @@ namespace HakunaMatata.Services
         News GetNewsDetails(int id);
         void CreateNews(News news);
         void UpdateNews(News news);
+        bool IsExistNews(int id);
         Level GetDetails(int id);
         void Create(Level level);
         void UpdateLevel(Level level);
@@ -172,6 +173,11 @@ namespace HakunaMatata.Services
         public bool IsExist(int id)
         {
             return _context.Level.Any(f => f.Id == id);
+        }
+
+        public bool IsExistNews(int id)
+        {
+            return _context.News.Any(f => f.Id == id);
         }
     }
 }
