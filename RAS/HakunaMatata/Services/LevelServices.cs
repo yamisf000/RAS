@@ -19,6 +19,7 @@ namespace HakunaMatata.Services
         IEnumerable<News> GetListNews();
         News GetNewsDetails(int id);
         void CreateNews(News news);
+        void UpdateNews(News news);
         Level GetDetails(int id);
         void Create(Level level);
         void UpdateLevel(Level level);
@@ -91,6 +92,24 @@ namespace HakunaMatata.Services
                 news.AgentId = 5; // Set AgentId to 5
                 _context.News.Add(news);
                 _context.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public void UpdateNews(News news)
+        {
+            try
+            {
+                var n = _context.News.Find(news.Id);
+                if (n != null)
+                {
+                    n.Title = news.Title;
+                    n.NewsBody = news.NewsBody;
+                    _context.SaveChanges();
+                }
             }
             catch
             {
