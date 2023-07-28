@@ -16,6 +16,7 @@ namespace HakunaMatata.Services
         IEnumerable<HistoryPayment> GetHistoryPayments();
         IEnumerable<PaymentHistoryDetailModel> GetHistoryPaymentsByDate(DateTime? startDate, DateTime? endDate,
             int userId = 0);
+        IEnumerable<News> GetListNews();
         Level GetDetails(int id);
         void Create(Level level);
         void UpdateLevel(Level level);
@@ -68,6 +69,8 @@ namespace HakunaMatata.Services
         {
             return _context.HistoryPayment.ToList();
         }
+
+     
 
         public Level GetDetails(int id)
         {
