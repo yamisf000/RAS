@@ -18,7 +18,7 @@ namespace HakunaMatata.Services
         bool UpdateProfile(VM_Agent updateProfile);
         int UpdatePassword(VM_ChangePassword data);
     }
-
+    
     public class AgentServices : IAgentServices
     {
         private readonly HakunaMatataContext _context;

@@ -22,7 +22,7 @@ namespace HakunaMatata.Services
         {
             _dbContext = dbContext;
         }
-
+        
         public bool CheckExist(string loginName)
         {
             return _dbContext.Agent.Any(x => x.LoginName.Equals(loginName));
