@@ -1,6 +1,7 @@
 ﻿using HakunaMatata.Data;
 using HakunaMatata.Models.DataModels;
 using HakunaMatata.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,34 @@ namespace HakunaMatata.Services
         public LevelServices(HakunaMatataContext context)
         {
             _context = context;
+        }
+
+        public async Task<List<ChartReportSummaryModel>> GenerateOrderReport(int year, int month)
+        {
+            var startDate = new DateTime(year, month, 1);
+            var endDate = startDate.AddMonths(1);
+
+            var orders = await _context.HistoryPayment
+                .Where(s => s.PaymentDate >= startDate && s.PaymentDate < endDate)
+                .ToListAsync();
+
+            var reportData = new List<ChartReportSummaryModel>();
+
+            for (var day = 1; day <= DateTime.DaysInMonth(year, month); day++)
+            {
+                var ordersInDay = orders.Where(s => s.PaymentDate.Day == day).ToList();
+                var totalAmount = (double)ordersInDay.Sum(s => s.Coin);
+
+                var chartModel = new ChartReportSummaryModel
+                {
+                    ValueX = day,
+                    ValueY = totalAmount
+                };
+
+                reportData.Add(chartModel);
+            }
+
+            return reportData;
         }
 
 
