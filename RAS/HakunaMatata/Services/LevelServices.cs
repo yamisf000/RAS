@@ -64,6 +64,11 @@ namespace HakunaMatata.Services
             return _context.Level.ToList();
         }
 
+        public IEnumerable<HistoryPayment> GetHistoryPayments()
+        {
+            return _context.HistoryPayment.ToList();
+        }
+
         public Level GetDetails(int id)
         {
             return _context.Level.Find(id);
