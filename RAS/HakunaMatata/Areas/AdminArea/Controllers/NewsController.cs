@@ -39,6 +39,24 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
                 }
                 return View(level);
             }
+        }
+
+        [NoDirectAccess]
+        public IActionResult CreateOrEditImage(int id = 0)
+        {
+            if (id == 0)
+            {
+                return View(new Newspicture());
+            }
+            else
+            {
+                var newspic = _services.GetNewsDetails(id);
+                if (newspic == null)
+                {
+                    return NotFound();
+                }
+                return View(newspic);
+            }
 
         }
     }
