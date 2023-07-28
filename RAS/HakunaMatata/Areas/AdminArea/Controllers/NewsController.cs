@@ -59,5 +59,37 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             }
 
         }
+
+        [HttpPost]
+        public IActionResult CreateOrEdit(int id, [Bind("Id,Title,NewsBody")] News news)
+        {
+            if (ModelState.IsValid)
+            {
+                //insert
+                if (id == 0)
+                {
+                    _services.CreateNews(news);
+                }
+
+                //update
+                else
+                {
+                    try
+                    {
+                        _services.UpdateNews(news);
+                    }
+                    catch (Exception)
+                    {
+                        if (!_services.IsExistNews(news.Id))
+                        {
+                            return NotFound();
+                        }
+                        else throw;
+                    }
+                }
+                return Json(new { isValid = true, html = Helper.RenderRazorViewToString(this, "_ViewAllNews", _services.GetListNews()) });
+            }
+            return Json(new { isValid = false, html = Helper.RenderRazorViewToString(this, "CreateOrEdit", news) });
+        }
     }
 }
