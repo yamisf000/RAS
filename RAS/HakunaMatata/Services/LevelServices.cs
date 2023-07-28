@@ -14,6 +14,8 @@ namespace HakunaMatata.Services
         Task<List<ChartReportSummaryModel>> GenerateOrderReport(int year, int month);
         IEnumerable<Level> GetListLevels();
         IEnumerable<HistoryPayment> GetHistoryPayments();
+        IEnumerable<PaymentHistoryDetailModel> GetHistoryPaymentsByDate(DateTime? startDate, DateTime? endDate,
+            int userId = 0);
         Level GetDetails(int id);
         void Create(Level level);
         void UpdateLevel(Level level);
