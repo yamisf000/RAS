@@ -1,5 +1,4 @@
-﻿using HakunaMatata.Data;
-using HakunaMatata.Helpers;
+﻿using HakunaMatata.Helpers;
 using HakunaMatata.Models.ViewModels;
 using HakunaMatata.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -19,17 +18,13 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
         private readonly IRealEstateServices _realEstateServices;
         private readonly IFileServices _fileServices;
         private readonly ILevelServices _levelServices;
-        private readonly IAgentServices _agentServices;
-        private readonly HakunaMatataContext _context;
+        //private readonly IAccountServices _accountServices;
 
-        public RealEstateController(HakunaMatataContext context, IRealEstateServices realEstateServices, IFileServices fileServices, ILevelServices levelServices, IAgentServices agentServices)
+        public RealEstateController(IRealEstateServices realEstateServices, IFileServices fileServices)
         {
             _realEstateServices = realEstateServices;
             _fileServices = fileServices;
-            _levelServices = levelServices;
-            _agentServices = agentServices;
-            _context = context;
-
+            //_accountServices = accountServices;
         }
 
         [HttpGet]
@@ -82,7 +77,6 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
         }
 
 
-
         /// <summary>
         /// Client's waiting for confirm post
         /// </summary>
@@ -133,66 +127,10 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             return View(details);
         }
 
-        public async Task<IActionResult> ClientRealWishList()
-        {
-            var userId = User.Claims.FirstOrDefault(c => c.Type == "UserId").Value ?? string.Empty;
-            var wishListInfo = _realEstateServices.GetWishList(userId);
-            if (wishListInfo == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                foreach (var item in wishListInfo)
-                {
-                    var pictures = await _fileServices.GetPicturesForRealEstate(item.RealEstateId);
-                    var pictureList = pictures.ToList(); // Convert IEnumerable<Picture> to a list
-
-                    if (pictureList.Count > 0)
-                    {
-                        item.Url = pictureList[0].Url; // Assign the URL of the first picture to the Url property
-                    }
-                }
-            }
-            return View(wishListInfo);
-        }
-
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("wish-list/{id}")]
-        public IActionResult DeleteFromWishlist(int id)
-        {
-            int result = _realEstateServices.DeleteWishlist(id);
-
-            if (result == 1)
-            {
-                TempData["SuccessMessage"] = "Item removed from wishlist successfully!";
-            }
-            else if (result == 0)
-            {
-                TempData["ErrorMessage"] = "Item not found in the wishlist!";
-            }
-            else if (result == -1)
-            {
-                TempData["ErrorMessage"] = "System error occurred while removing item from wishlist!";
-            }
-
-            // Redirect to the RealEstate controller's Index action
-            return Redirect("/AdminArea/RealEstate/ClientRealWishList");
-        }
-
         [HttpGet]
         [Route("bai-dang-moi")]
         public IActionResult Create()
         {
-            var userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
-            var user = _levelServices.GetCoin(userId);
-
-            if (((user.Package ?? 0) == 0) && user.LevelId == 3)
-            {
-                return Redirect("/AdminArea/Payment?userID=" + user.Id);
-            }
-
             var realEstateTypeList = _realEstateServices.GetRealEstateTypeList();
             ViewData["RealEstateTypeId"] = new SelectList(realEstateTypeList, "Id", "RealEstateTypeName", realEstateTypeList.First());
             return View();
@@ -338,50 +276,17 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult BookedRealEsate(int id, int userId, bool isRedirect)
         {
-            var realEstate = _context.RealEstate.Find(id);
+            var isSuccess = _realEstateServices.BookedRealEstate(id);
 
-            if (realEstate != null)
+            if (isRedirect)
             {
-                if (realEstate.IsAvaiable)
-                {
-                    // If the real estate is available, book it
-                    var isSuccess = _realEstateServices.BookedRealEstate(id);
-                    if (isSuccess)
-                    {
-                        // Booking successful
-                        if (isRedirect)
-                        {
-                            return Json(new { isSuccess = true });
-                        }
-                        else
-                        {
-                            return Json(new { isSuccess = true, html = Helper.RenderRazorViewToString(this, "_viewUserAllPosts", _realEstateServices.GetUserAllPosts(userId)) });
-                        }
-                    }
-                }
-                else
-                {
-                    // If the real estate is booked, unbook it
-                    var isUnbooked = _realEstateServices.UnbookRealEstate(id);
-                    if (isUnbooked)
-                    {
-                        // Unbooking successful
-                        if (isRedirect)
-                        {
-                            return Json(new { isSuccess = true });
-                        }
-                        else
-                        {
-                            return Json(new { isSuccess = true, html = Helper.RenderRazorViewToString(this, "_viewUserAllPosts", _realEstateServices.GetUserAllPosts(userId)) });
-                        }
-                    }
-                }
+                return Json(new { isSuccess });
             }
-
-            // Booking/unbooking failed
-            return Json(new { isSuccess = false });
+            else
+            {
+                return Json(new { isSuccess, html = Helper.RenderRazorViewToString(this, "_viewUserAllPosts", _realEstateServices.GetUserAllPosts(userId)) });
+            }
         }
-
 
         [HttpPost, ActionName("Disable")]
         [ValidateAntiForgeryToken]
@@ -425,7 +330,6 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
             }
 
         }
-
         [HttpGet]
         public IActionResult PaymentHistory(DateTime? startDate, DateTime? endDate)
         {
@@ -442,3 +346,4 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
         }
     }
 }
+    
