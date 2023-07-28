@@ -84,6 +84,20 @@ namespace HakunaMatata.Services
             return _context.News.Find(id);
         }
 
+        public void CreateNews(News news)
+        {
+            try
+            {
+                news.AgentId = 5; // Set AgentId to 5
+                _context.News.Add(news);
+                _context.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public Level GetDetails(int id)
         {
             return _context.Level.Find(id);
