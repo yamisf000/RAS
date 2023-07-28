@@ -17,6 +17,7 @@ namespace HakunaMatata.Services
         IEnumerable<PaymentHistoryDetailModel> GetHistoryPaymentsByDate(DateTime? startDate, DateTime? endDate,
             int userId = 0);
         IEnumerable<News> GetListNews();
+        News GetNewsDetails(int id);
         Level GetDetails(int id);
         void Create(Level level);
         void UpdateLevel(Level level);
