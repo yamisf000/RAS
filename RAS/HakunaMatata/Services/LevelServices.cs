@@ -10,6 +10,7 @@ namespace HakunaMatata.Services
 {
     public interface ILevelServices
     {
+        Task<List<ChartReportSummaryModel>> GenerateOrderReport(int year, int month);
         IEnumerable<Level> GetListLevels();
         Level GetDetails(int id);
         void Create(Level level);
