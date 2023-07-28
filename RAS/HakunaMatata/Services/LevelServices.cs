@@ -1,5 +1,6 @@
 ﻿using HakunaMatata.Data;
 using HakunaMatata.Models.DataModels;
+using HakunaMatata.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace HakunaMatata.Services
 {
     public interface ILevelServices
     {
+        Task<List<ChartReportSummaryModel>> GenerateOrderReport(int year, int month);
         IEnumerable<Level> GetListLevels();
         Level GetDetails(int id);
         void Create(Level level);
