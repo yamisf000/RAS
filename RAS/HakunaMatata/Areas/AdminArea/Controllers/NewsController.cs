@@ -16,6 +16,11 @@ namespace HakunaMatata.Areas.AdminArea.Controllers
         {
             _services = services;
         }
-      
+
+        public IActionResult Index()
+        {
+            var news = _services.GetListNews();
+            return View(news);
+        }
     }
 }
