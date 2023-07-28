@@ -13,6 +13,7 @@ namespace HakunaMatata.Services
     {
         Task<List<ChartReportSummaryModel>> GenerateOrderReport(int year, int month);
         IEnumerable<Level> GetListLevels();
+        IEnumerable<HistoryPayment> GetHistoryPayments();
         Level GetDetails(int id);
         void Create(Level level);
         void UpdateLevel(Level level);
